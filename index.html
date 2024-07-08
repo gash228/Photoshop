@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="still.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<title>Photoshop</title>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-size: 48px; margin-left: 5%">Photoshop</h1>
+    </header>
+    <div class="sidebar left">
+		<h2>Apply filters</h2>
+        <ul>
+            <li><button id="box" class="button">Box</button><br></li>
+            <li><button id="gaus" class="button">Gaus</button><br></li>
+            <li><button id="sobel" class="button">Sobel</button><br></li>
+            <li><button id="laplac" class="button">Laplac</button><br></li>
+			<li><button id="sepia" class="button">Sepia</button><br></li>
+            <li><button id="ostr" class="button">Ostrenje</button><br></li>
+            <li><button id="neostr" class="button">Neostrenje</button><br></li>
+			<li><button id="gray" class="button">Grayscale</button></li>
+			<li><button id="undo" class="button">Undo</button><br></li>
+        </ul>
+    </div>
+
+    <div class="sidebar right">
+		<h2>Modify image</h2>
+		
+		<fieldset class="box">
+			<legend>Poudarjanje kanalov</legend>
+			<div class="operation">Rdeči</div>
+			<input type="range" min="0" max="2" value="1" step="0.05" id="slider-r">
+			<div class="operation">Zeleni</div>
+			<input type="range" min="0" max="2" value="1" step="0.05" id="slider-g">
+			<div class="operation">Modri</div>
+			<input type="range" min="0" max="2" value="1" step="0.05" id="slider-b">
+		</fieldset>
+		<fieldset class="box">
+			<legend>Odstrani kanal: </legend>
+			<button class="small-button" id="odstrani-r">Rdeči</button>
+			<button class="small-button" id="odstrani-g">Zeleni</button>
+			<button class="small-button" id="odstrani-b">Modri</button>
+		</fieldset>
+		<fieldset class="box">
+			<legend>Operacije: </legend>
+			<div class="operation">Threshold</div>
+			<input type="range" min="0" max="255" value="128" id="tresh-slider" class="slider">
+			<div class="operation">Brightness</div>
+			<input type="range" min="-100" max="100" value="0" id="svetlost-slider" class="slider">
+		</fieldset>
+
+		<fieldset class="box">
+			<legend>Orodja: </legend>
+			<div>
+			<button class="b">
+				<i class="fas fa-paint-brush dis" id="brush"></i>
+			</button>
+			<button class="b">
+				<i class="fas fa-eraser dis" id="eraser"></i>
+			</button>
+			</div>
+		</fieldset>
+		<br>
+		<li><button id="restore" class="button">Restore image</button><br></li>
+
+    </div>
+
+    <div class="content">
+        <div class="upload">Naloži sliko:
+            <input type="file" id="slika"/>
+		</div>
+            <canvas id="image" class="hidden"></canvas><br>
+
+
+
+		
+			<fieldset class="histo hidden">
+				<legend>Histogram</legend>
+				<canvas id="rdec" style="width:100%"></canvas>
+			</fieldset>
+
+
+
+			<button id="download">Save/Download</button>
+		
+			
+
+    </div>
+
+	<script src="chart.min.js"></script>
+	<script src="filters.js"></script>
+	<script src="histo.js"></script>
+	<script src="image.js"></script>
+	<script src="functionality.js"></script>
+	<script src="button.js"></script>
+
+
+	<script>
+		DisableButtons();
+	</script>
+
+
+	
+</body>
+
+</html>
